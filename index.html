@@ -1,0 +1,2122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Fast Flags complete guide, presets, categories, and optimization settings for Roblox. Boost FPS, reduce ping, improve performance with curated FFlags presets." />
+  <meta name="keywords" content="Fast Flags, Roblox Fast Flags, FFlags, FPS boost, Roblox performance, Roblox optimization, bloxstrap fast flags, render fast flags" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Fast Flags – Complete Roblox FFlags Guide & Presets" />
+  <meta property="og:description" content="Complete list of Fast Flags for Roblox with categories, presets, and optimization tips. FPS, ping, graphics, UI, and physics tweaks included." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/assets/fastflags-banner.png" />
+  <meta property="og:url" content="https://fastflags.onrender.com" />
+  <link rel="canonical" href="https://fastflags.onrender.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0f1724;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+      --accent: #6ee7b7;
+      --glass: rgba(255, 255, 255, 0.03);
+      --primary: #4ade80;
+      --secondary: #34d399;
+      --danger: #f87171;
+      --warning: #fbbf24;
+      --info: #60a5fa;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #071025 0%, #0e1630 100%);
+      color: #e6eef6;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    
+    header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0ea5a9, #7c3aed);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 20px;
+      color: white;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      font-weight: 700;
+    }
+    
+    p.lead {
+      color: var(--muted);
+      margin-top: 6px;
+      font-size: 16px;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-top: 22px;
+    }
+    
+    .card {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6);
+      margin-bottom: 24px;
+    }
+    
+    .muted {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    
+    .chip {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--glass);
+      font-size: 13px;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    
+    pre {
+      background: #021023;
+      padding: 16px;
+      border-radius: 8px;
+      overflow: auto;
+      font-family: 'Courier New', monospace;
+      margin: 12px 0;
+      border-left: 4px solid var(--accent);
+    }
+    
+    .preset {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent);
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .preset:hover {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent);
+      transform: translateY(-2px);
+    }
+    
+    .btn {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      border: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+ color: #021022;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+    }
+    
+    .ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px 16px;
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .ghost:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+    }
+    
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.05);
+      color: inherit;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+    
+    input[type="text"]:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+      padding: 20px 0;
+    }
+    
+    .copy-ok {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    
+    .small {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    
+    .preset-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    
+    .tag {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      transition: all 0.2s ease;
+    }
+    
+    .tag:hover {
+      background: rgba(110, 231, 183, 0.2);
+      color: var(--accent);
+    }
+    
+    nav {
+      margin: 20px 0;
+    }
+    
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-right: 20px;
+      padding-bottom: 4px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      color: white;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .category {
+      margin-bottom: 32px;
+    }
+    
+    .category-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .category-icon {
+      font-size: 24px;
+      margin-right: 12px;
+      color: var(--accent);
+    }
+    
+    .category-title {
+      font-size: 22px;
+      font-weight: 600;
+    }
+    
+    .flag-item {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .flag-item:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    
+    .flag-name {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: white;
+    }
+    
+    .flag-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    
+    .flag-json {
+      font-family: 'Courier New', monospace;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 13px;
+      overflow-x: auto;
+    }
+    
+    .notice {
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    
+    .notice-important {
+      background: rgba(251, 191, 36, 0.1);
+      border-left: 4px solid var(--warning);
+    }
+    
+    .notice-caution {
+      background: rgba(248, 113, 113, 0.1);
+      border-left: 4px solid var(--danger);
+    }
+    
+    .notice-tip {
+      background: rgba(96, 165, 250, 0.1);
+      border-left: 4px solid var(--info);
+    }
+    
+    .notice-note {
+      background: rgba(110, 231, 183, 0.1);
+      border-left: 4px solid var(--accent);
+    }
+    
+    .notice-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    
+    .tabs {
+      display: flex;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .tab {
+      padding: 10px 16px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+    }
+    
+    .tab:hover {
+      color: white;
+    }
+    
+    .tab.active {
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+    
+    .tab-content {
+      display: none;
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .install-steps {
+      counter-reset: step;
+    }
+    
+    .install-step {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .install-step::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: var(--bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+    }
+    
+    .install-step-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    
+    .install-step-desc {
+      color: var(--muted);
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .preset {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      
+      .preset-buttons {
+        display: flex;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">FF</div>
+      <div>
+        <h1>Fast Flags — Complete Roblox FFlags Guide</h1>
+        <p class="lead">Curated flag presets, optimization settings, and comprehensive documentation for Roblox performance enhancement.</p>
+      </div>
+    </header>
+
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#categories">Categories</a>
+      <a href="#presets">Presets</a>
+      <a href="#install">Install</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <div class="card">
+      <section id="features">
+        <h2>What this site includes</h2>
+        <ul class="muted" style="margin-left: 20px; margin-top: 12px;">
+          <li>Comprehensive single-file static site (HTML + JS) with detailed flag documentation</li>
+          <li>Preset browser with search, filter by tags, and copy-to-clipboard functionality</li>
+          <li>Download preset as JSON, with detailed installation instructions</li>
+          <li>Deploy-ready: push to GitHub and connect to Render (no build required)</li>
+          <li>Complete categorized reference of all Roblox Fast Flags</li>
+        </ul>
+      </section>
+    </div>
+
+    <section id="categories" class="card">
+      <h2>Fast Flags Categories</h2>
+      <p class="muted">Below is an organized reference of Fast Flags categorized by functionality to help you understand what each category does.</p>
+      
+      <div class="tabs">
+        <div class="tab active" onclick="openTab(event, 'rendering')">Rendering</div>
+        <div class="tab" onclick="openTab(event, 'graphics')">Graphics</div>
+        <div class="tab" onclick="openTab(event, 'ui')">User Interface</div>
+        <div class="tab" onclick="openTab(event, 'physics')">Physics</div>
+        <div class="tab" onclick="openTab(event, 'network')">Network</div>
+        <div class="tab" onclick="openTab(event, 'audio')">Audio</div>
+        <div class="tab" onclick="openTab(event, 'system')">System</div>
+      </div>
+      
+      <div id="rendering" class="tab-content active">
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-microchip category-icon"></i>
+            <h3 class="category-title">Rendering APIs</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Direct3D 11</div>
+            <div class="flag-desc">Enables Direct3D 11 rendering for better performance on compatible systems.</div>
+            <div class="flag-json">{
+  "FFlagDebugGraphicsDisableDirect3D11": "False",
+  "FFlagDebugGraphicsPreferD3D11": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Direct3D 10</div>
+            <div class="flag-desc">Enables Direct3D 10 rendering for older hardware compatibility.</div>
+            <div class="flag-json">{
+  "FFlagDebugGraphicsPreferD3D11FL10": "True",
+  "FFlagGraphicsEnableD3D10Compute": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Vulkan</div>
+            <div class="notice notice-caution">
+              <div class="notice-title">Caution</div>
+              <div>May cause visual bugs & crashes on some systems</div>
+            </div>
+            <div class="flag-desc">Enables Vulkan rendering API for potentially better performance on supported systems.</div>
+            <div class="flag-json">{
+  "FFlagDebugGraphicsDisableDirect3D11": "True",
+  "FFlagDebugGraphicsPreferVulkan": "True",
+  "FFlagRenderVulkanFixMinimizeWindow": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">OpenGL</div>
+            <div class="flag-desc">Enables OpenGL rendering for cross-platform compatibility.</div>
+            <div class="flag-json">{
+  "FFlagDebugGraphicsDisableDirect3D11": "True",
+  "FFlagDebugGraphicsPreferOpenGL": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Metal</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>MacOS Only</div>
+            </div>
+            <div class="flag-desc">Enables Metal rendering API for Apple devices.</div>
+            <div class="flag-json">{
+  "FFlagDebugGraphicsDisableDirect3D11": "True",
+  "FFlagDebugGraphicsPreferMetal": "True"
+}</div>
+          </div>
+        </div>
+        
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-lightbulb category-icon"></i>
+            <h3 class="category-title">Lighting Technologies</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Voxel (Phase 1)</div>
+            <div class="flag-desc">Enables Voxel lighting technology for basic lighting effects.</div>
+            <div class="flag-json">{
+  "DFFlagDebugRenderForceTechnologyVoxel": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Shadow Map (Phase 2)</div>
+            <div class="flag-desc">Enables Shadow Map lighting technology for improved shadow rendering.</div>
+            <div class="flag-json">{
+  "FFlagDebugForceFutureIsBrightPhase2": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Future (Phase 3)</div>
+            <div class="flag-desc">Enables Future lighting technology for advanced lighting effects.</div>
+            <div class="flag-json">{
+  "FFlagDebugForceFutureIsBrightPhase3": "True"
+}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="graphics" class="tab-content">
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-palette category-icon"></i>
+            <h3 class="category-title">Graphics & Visual Effects</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Performance Mode</div>
+            <div class="flag-desc">Enables performance mode that optimizes graphics for better FPS.</div>
+            <div class="flag-json">{
+  "DFFlagDebugPerfMode": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Force MSAA/Multisample Anti-Aliasing</div>
+            <div class="notice notice-caution">
+              <div class="notice-title">Caution</div>
+              <div>Values over 4 may cause viewport bugs</div>
+            </div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Values: 0, 1, 2, 4, 8</div>
+            </div>
+            <div class="flag-desc">Forces MSAA for smoother edges. Higher values provide better anti-aliasing but impact performance.</div>
+            <div class="flag-json">{
+  "FIntDebugForceMSAASamples": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Preserve Rendering Quality With Display Scaling</div>
+            <div class="flag-desc">Maintains visual quality when using display scaling.</div>
+            <div class="flag-json">{
+  "DFFlagDebugOverrideDPIScale": "True",
+  "DFFlagDisableDPIScale": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Display Scaling</div>
+            <div class="flag-desc">Disables display scaling for potentially better performance.</div>
+            <div class="flag-json">{
+  "DFFlagDebugOverrideDPIScale": "False",
+  "DFFlagDisableDPIScale": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Unnecessary Effects</div>
+            <div class="flag-desc">Disables post-processing effects for better performance.</div>
+            <div class="flag-json">{
+  "FFlagDisablePostFx": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Reduced Avatar Item Particle in FP</div>
+            <div class="flag-desc">Reduces particle effects from avatar items in first-person view.</div>
+            <div class="flag-json">{
+  "FFlagUserHideCharacterParticlesInFirstPerson": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Max Graphics Quality Particles</div>
+            <div class="notice notice-caution">
+              <div class="notice-title">Caution</div>
+              <div>Particles may speed up</div>
+            </div>
+            <div class="flag-desc">Enables maximum quality particle effects.</div>
+            <div class="flag-json">{
+  "FFlagDebugDeterministicParticles": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Player Shadows</div>
+            <div class="flag-desc">Removes player shadows for better performance.</div>
+            <div class="flag-json">{
+  "FIntRenderShadowIntensity": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">ShadowMap Bias</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Future & ShadowMap only</div>
+            </div>
+            <div class="flag-desc">Adjusts shadow map bias to fix shadow artifacts.</div>
+            <div class="flag-json">{
+  "FIntRenderShadowmapBias": "75"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Reduce Shadows</div>
+            <div class="flag-desc">Reduces shadow quality for better performance.</div>
+            <div class="flag-json">{
+  "DFIntCullFactorPixelThresholdShadowMapHighQuality": "2147483647",
+  "DFIntCullFactorPixelThresholdShadowMapLowQuality": "2147483647"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Pause Voxelizer/Disable Baked Shadows</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Only works with Voxel Lighting. Disables lighting.</div>
+            </div>
+            <div class="flag-desc">Pauses the voxelizer to disable baked shadows.</div>
+            <div class="flag-json">{
+  "DFFlagDebugPauseVoxelizer": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Remove Grass</div>
+            <div class="flag-desc">Removes grass rendering for better performance.</div>
+            <div class="flag-json">{
+  "FIntFRMMinGrassDistance": "0",
+  "FIntFRMMaxGrassDistance": "0",
+  "FIntRenderGrassDetailStrands": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Low Quality Terrain Textures</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>4 or less are lower quality. 16, 32, 64 for higher quality</div>
+            </div>
+            <div class="flag-desc">Reduces terrain texture quality for better performance.</div>
+            <div class="flag-json">{
+  "FIntTerrainArraySliceSize": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Force Texture Quality</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Set any value from 0-3</div>
+            </div>
+            <div class="flag-desc">Forces a specific texture quality level.</div>
+            <div class="flag-json">{
+  "DFFlagTextureQualityOverrideEnabled": "True",
+  "DFIntTextureQualityOverride": "3"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Lower Quality Textures</div>
+            <div class="flag-desc">Reduces texture quality for better performance.</div>
+            <div class="flag-json">{
+  "DFIntPerformanceControlTextureQualityBestUtility": "-1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">No Avatar Textures</div>
+            <div class="flag-desc">Disables avatar textures for better performance.</div>
+            <div class="flag-json">{
+  "DFIntTextureCompositorActiveJobs": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Make Avatars Shiny</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Everything goes black the lower the graphics quality</div>
+            </div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>DFIntDebugFRMQualityLevelOverride is there to set your graphics to 3 bars. You can change it to anything above 3</div>
+            </div>
+            <div class="flag-desc">Makes avatars appear shiny by adjusting roughness values.</div>
+            <div class="flag-json">{
+  "DFIntRenderClampRoughnessMax": "-640000000",
+  "DFIntDebugFRMQualityLevelOverride": "6"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Texture Manager</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>1-4 Blurry, 5-7 Low Quality Removes Studs, 8 Removes Almost Everything. Affects in-game UIs to be 1x1 squared</div>
+            </div>
+            <div class="flag-desc">Controls texture manager skip mips for performance.</div>
+            <div class="flag-json">{
+  "FIntDebugTextureManagerSkipMips": "8"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">No Terrain Textures</div>
+            <div class="flag-desc">Removes terrain textures for better performance.</div>
+            <div class="flag-json">{
+  "FStringTerrainMaterialTablePre2022": "",
+  "FStringTerrainMaterialTable2022": ""
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Smoother Terrain</div>
+            <div class="flag-desc">Enables smoother terrain rendering.</div>
+            <div class="flag-json">{
+  "FFlagDebugRenderingSetDeterministic": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Limits Light Updates</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Set any value from 1-8</div>
+            </div>
+            <div class="flag-desc">Limits the number of light updates per frame for better performance.</div>
+            <div class="flag-json">{
+  "FIntRenderLocalLightUpdatesMax": "1",
+  "FIntRenderLocalLightUpdatesMin": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disables Fade In And Fade Out Animation Every Light Update</div>
+            <div class="flag-desc">Removes fade animations for light updates.</div>
+            <div class="flag-json">{
+  "FIntRenderLocalLightFadeInMs": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Enable Light Attenuation</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Combine with GPU Light Culling & CPU Light Culling for better vision</div>
+            </div>
+            <div class="flag-desc">Enables improved light attenuation for better lighting.</div>
+            <div class="flag-json">{
+  "FFlagNewLightAttenuation": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Enable GPU Light Culling</div>
+            <div class="flag-desc">Enables GPU-based light culling for better performance.</div>
+            <div class="flag-json">{
+  "FFlagFastGPULightCulling3": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Enable CPU Light Culling</div>
+            <div class="flag-desc">Enables CPU-based light culling for better performance.</div>
+            <div class="flag-json">{
+  "FFlagDebugForceFSMCPULightCulling": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Brighter View</div>
+            <div class="flag-desc">Improves visibility by fixing fog rendering.</div>
+            <div class="flag-json">{
+  "FFlagRenderFixFog": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Cap Graphics Quality Level</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>1-7 are low graphics, 11-21 are high graphics. Increased render distance without increasing graphics quality</div>
+            </div>
+            <div class="flag-desc">Caps the graphics quality level for better performance.</div>
+            <div class="flag-json">{
+  "DFIntDebugFRMQualityLevelOverride": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">FRM Levels</div>
+            <div class="flag-desc">Controls the graphics quality level.</div>
+            <div class="flag-json">Low:
+1 = 3
+2 = 2
+3 = 6
+
+High:
+4 = 7
+5 = 11
+6 = 14
+7 = 15 
+8 = 17
+9 = 18
+10 = 21</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Force Set Graphics Quality Level</div>
+            <div class="flag-desc">Forces a specific graphics quality level.</div>
+            <div class="flag-json">{
+  "FIntRomarkStartWithGraphicQualityLevel": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Low Render Distance</div>
+            <div class="flag-desc">Reduces render distance for better performance.</div>
+            <div class="flag-json">{
+  "DFIntDebugRestrictGCDistance": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Render Occlusion Culling</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Prevent wasted rendering operations for objects that are not visible</div>
+            </div>
+            <div class="flag-desc">Enables occlusion culling to improve performance.</div>
+            <div class="flag-json">{
+  "DFFlagUseVisBugChecks": "True",
+  "FFlagEnableVisBugChecks27": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Frame Buffer</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>0 makes white screen, 1-3 makes other players have laggy movement, 4 is stable has better performance than 10 and less input lag</div>
+            </div>
+            <div class="flag-desc">Controls frame buffer size for performance tuning.</div>
+            <div class="flag-json">{
+  "DFIntMaxFrameBufferSize": "4"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Gray Sky</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Only applies to games with the default skybox</div>
+            </div>
+            <div class="flag-desc">Replaces the sky with a gray color for better visibility.</div>
+            <div class="flag-json">{
+  "FFlagDebugSkyGray": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Force LOD On Meshes</div>
+            <div class="flag-desc">Forces level of detail on meshes for better performance.</div>
+            <div class="flag-json">{
+  "DFIntCSGLevelOfDetailSwitchingDistance": "0",
+  "DFIntCSGLevelOfDetailSwitchingDistanceL12": "0",
+  "DFIntCSGLevelOfDetailSwitchingDistanceL23": "0",
+  "DFIntCSGLevelOfDetailSwitchingDistanceL34": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">HyperThreading</div>
+            <div class="flag-desc">Enables hyper-threading for better CPU utilization.</div>
+            <div class="flag-json">{
+  "FFlagDebugCheckRenderThreading": "True",
+  "FFlagRenderDebugCheckThreading2": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Maximum Threads</div>
+            <div class="flag-desc">Sets the maximum number of threads for better performance.</div>
+            <div class="flag-json">{
+  "FIntRuntimeMaxNumOfThreads": "2400"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Minimum Threads</div>
+            <div class="flag-desc">Sets the minimum number of threads for better performance.</div>
+            <div class="flag-json">{
+  "FIntTaskSchedulerThreadMin": "3"
+}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="ui" class="tab-content">
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-desktop category-icon"></i>
+            <h3 class="category-title">User Interface</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Exclusive Fullscreen</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Alt + Delete</div>
+            </div>
+            <div class="flag-desc">Enables exclusive fullscreen mode for better performance.</div>
+            <div class="flag-json">{
+  "FFlagHandleAltEnterFullscreenManually": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Fullscreen Title Bar</div>
+            <div class="flag-desc">Disables the fullscreen title bar for a cleaner look.</div>
+            <div class="flag-json">{
+  "FIntFullscreenTitleBarTriggerDelayMillis": "3600000"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Hide GUIs</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Replace "ID" with any group ID that you are in.</div>
+            </div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Key combination | Action<br>
+              Ctrl + Shift + B | Toggles GUIs in 3D space (BillboardGuis, SurfaceGuis, etc)<br>
+              Ctrl + Shift + C | Toggles game-defined ScreenGuis<br>
+              Ctrl + Shift + G | Toggles Roblox CoreGuis<br>
+              Ctrl + Shift + N | Toggles player names, and other BillboardGuis that show up above a player</div>
+            </div>
+            <div class="flag-desc">Allows hiding of GUI elements based on group ID.</div>
+            <div class="flag-json">{
+  "DFIntCanHideGuiGroupId": "ID"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">GUI Hiding Toggles</div>
+            <div class="flag-desc">Enables GUI hiding toggles in the settings.</div>
+            <div class="flag-json">{
+  "FFlagUserShowGuiHideToggles": "True",
+  "FFlagGuiHidingApiSupport2": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">FPS Unlocker In Roblox Menu Settings</div>
+            <div class="flag-desc">Enables FPS unlocker in the Roblox menu settings.</div>
+            <div class="flag-json">{
+  "FFlagGameBasicSettingsFramerateCap5": "True",
+  "DFIntTaskSchedulerTargetFps": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Unlimited FPS Unlocker</div>
+            <div class="flag-desc">Enables unlimited FPS for better performance.</div>
+            <div class="flag-json">{
+  "FFlagTaskSchedulerLimitTargetFpsTo2402": "False",
+  "DFIntTaskSchedulerTargetFps": "5588562"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">5 Decimal Sensitivity Precision</div>
+            <div class="flag-desc">Enables 5 decimal precision for sensitivity settings.</div>
+            <div class="flag-json">{
+  "FFlagFixSensitivityTextPrecision": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Removes Translated Supported Message On Join</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>"Roblox automatically translates supported languages in chat."</div>
+            </div>
+            <div class="flag-desc">Removes the translation support message when joining a game.</div>
+            <div class="flag-json">{
+  "FFlagChatTranslationEnableSystemMessage": false
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Customize Language Translation</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>English cannot be removed.</div>
+            </div>
+            <div class="flag-desc">Customizes which languages are available for translation.</div>
+            <div class="flag-json">{
+  "FStringChatTranslationEnabledLocales": "es_es,fr_fr,pt_br,de_de,it_it,ja_jp,ko_kr,id_id,tr_tr,zh_cn,zh_tw,th_th,pl_pl,vi_vn,ru_ru,"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Opt-Out Experience Language</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>Removes the Experience Language option in settings</div>
+            </div>
+            <div class="flag-desc">Removes the Experience Language option from settings.</div>
+            <div class="flag-json">{
+  "FIntV1MenuLanguageSelectionFeaturePerMillageRollout": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable New Chat Translation Settings</div>
+            <div class="flag-desc">Disables the new chat translation settings.</div>
+            <div class="flag-json">{
+  "FFlagChatTranslationSettingEnabled3": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">New Camera Mode</div>
+            <div class="flag-desc">Enables the new camera mode.</div>
+            <div class="flag-json">{
+  "FFlagNewCameraControls": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Removes Long Recommended Section In Homepage</div>
+            <div class="flag-desc">Removes the long recommended section on the homepage.</div>
+            <div class="flag-json">{
+  "FIntGameGridFlexFeedItemTileNumPerFeed": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Captures Keybind</div>
+            <div class="flag-desc">Disables the captures keybind.</div>
+            <div class="flag-json">{
+  "FFlagEnableCapturesHotkeyExperiment_v4": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Chat</div>
+            <div class="flag-desc">Disables chat functionality.</div>
+            <div class="flag-json">{
+  "FFlagDebugForceChatDisabled": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Legacy Search</div>
+            <div class="flag-desc">Enables the legacy search interface.</div>
+            <div class="flag-json">{
+  "FFlagAXSearchLandingPageIXPEnabled4": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Profile Picture Customization</div>
+            <div class="flag-desc">Disables profile picture customization.</div>
+            <div class="flag-json">{
+  "FFlagAXDefaultAvatarToShopEnabled3": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Old Lua App Chat Button</div>
+            <div class="flag-desc">Reverts to the old Lua app chat button.</div>
+            <div class="flag-json">{
+  "FStringNewChatTabExperimentLayerValue": "2024MUSIC"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Break Reduced Motion V4</div>
+            <div class="flag-desc">Disables reduced motion settings.</div>
+            <div class="flag-json">{
+  "FFlagFixReducedMotionStuckIGM2": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Sidebar</div>
+            <div class="flag-desc">Disables the sidebar in the interface.</div>
+            <div class="flag-json">{
+  "FFlagEnableNavBarLabels3": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">V1 Menu</div>
+            <div class="flag-desc">Enables the V1 menu interface.</div>
+            <div class="flag-json">{
+  "FFlagDisableNewIGMinDUA": "True",
+  "FFlagEnableInGameMenuControls": "False",
+  "FFlagEnableInGameMenuModernization": "False",
+  "FFlagEnableMenuControlsABTest": "False",
+  "FFlagEnableMenuModernizationABTest": "False",
+  "FFlagEnableMenuModernizationABTest2": "False",
+  "FFlagEnableV3MenuABTest3": "False",
+  "FFlagFixReportButtonCutOff": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">V2 Menu</div>
+            <div class="flag-desc">Enables the V2 menu interface.</div>
+            <div class="flag-json">{
+  "FIntNewInGameMenuPercentRollout3": "1000"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Revert New Invite Menu</div>
+            <div class="flag-desc">Reverts to the old invite menu.</div>
+            <div class="flag-json">{
+  "FFlagEnableNewInviteMenuIXP2": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Darker Dark Theme</div>
+            <div class="flag-desc">Enables a darker dark theme.</div>
+            <div class="flag-json">{
+  "FFlagLuaAppUseUIBloxColorPalettes1": "True",
+  "FFlagUIBloxUseNewThemeColorPalettes": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Blue Theme</div>
+            <div class="flag-desc">Enables a blue theme.</div>
+            <div class="flag-json">{
+  "FFlagLuaAppEnableFoundationColors": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">No Transparency V4 Menu (2023)</div>
+            <div class="flag-desc">Removes transparency from the V4 menu.</div>
+            <div class="flag-json">{
+  "FStringInGameMenuModernizationStickyBarForcedUserIds": "UserID"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Subscriptions Page</div>
+            <div class="flag-desc">Enables the subscriptions page.</div>
+            <div class="flag-json">{
+  "FFlagLuaAppDevSubsEnabled": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Hides GUI</div>
+            <div class="flag-desc">Hides GUI elements.</div>
+            <div class="flag-json">{
+  "FFlagDebugAdornsDisabled": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Don't Render UI</div>
+            <div class="flag-desc">Disables UI rendering for better performance.</div>
+            <div class="flag-json">{
+  "FFlagDebugDontRenderUI": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Don't Render Screen GUIs</div>
+            <div class="flag-desc">Disables screen GUI rendering for better performance.</div>
+            <div class="flag-json">{
+  "FFlagDebugDontRenderScreenGui": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Break Top Bar Menu</div>
+            <div class="flag-desc">Modifies the top bar menu behavior.</div>
+            <div class="flag-json">{
+  "FStringNewInGameMenuForceds": "UserID",
+  "FFlagEnableInGameMenuChrome": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Avatar Chat</div>
+            <div class="flag-desc">Disables avatar chat functionality.</div>
+            <div class="flag-json">{
+  "FFlagAvatarChatServiceEnabled3": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Camera & Selfview</div>
+            <div class="flag-desc">Disables camera and selfview functionality.</div>
+            <div class="flag-json">{
+  "FFlagSelfieViewEnabled": "True"
+}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="physics" class="tab-content">
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-atom category-icon"></i>
+            <h3 class="category-title">Physics</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Limits Number of Animations Being Played</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>0 removes most player animations, 1-5 removes the walk animation after jumping</div>
+            </div>
+            <div class="flag-desc">Limits the number of animations that can be played simultaneously.</div>
+            <div class="flag-json">{
+  "DFIntMaxActiveAnimationTracks": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Stuttery Animation Fix</div>
+            <div class="flag-desc">Fixes stuttery animations.</div>
+            <div class="flag-json">{
+  "DFIntTimestepArbiterThresholdCFLThou": "300"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Dynamic Heads Animations</div>
+            <div class="flag-desc">Disables animations for dynamic heads.</div>
+            <div class="flag-json">{
+  "DFIntAnimationLodFacsDistanceMin": "0",
+  "DFIntAnimationLodFacsDistanceMax": "0",
+  "DFIntAnimationLodFacsVisibilityDenominator": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Change Sender Rate</div>
+            <div class="flag-desc">Changes the physics sender rate.</div>
+            <div class="flag-json">{
+  "DFIntS2PhysicsSenderRate": "250"
+}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="network" class="tab-content">
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-network-wired category-icon"></i>
+            <h3 class="category-title">Network</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">MTU</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Identify the Current MTU<br>
+              Windows: Open Command Prompt and type netsh interface ipv4 show subinterfaces.<br>
+              Linux: Use ifconfig or ip link show to find the current MTU of your network interface.</div>
+            </div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>Determine the Optimal MTU<br>
+              Ping Test: Use the ping command with the -f flag (to avoid fragmentation) and the -l (or -s on Linux) flag to set the packet size.<br>
+              Example for Windows:<br>
+              ping roblox.com -f -l 1396<br>
+              Example for Linux:<br>
+              ping -s 1396 -M do roblox.com<br>
+              Start with a packet size of 1472 bytes, then reduce by 10-12 bytes if needed until you find the largest size that doesn't fragment. Add 28 bytes to this number to get the optimal MTU.</div>
+            </div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>You could do 900, 1396, 1472, 1498. 1396 is the default and could be the best.</div>
+            </div>
+            <div class="flag-desc">Sets the MTU size for network packets.</div>
+            <div class="flag-json">{
+  "DFIntConnectionMTUSize": "1396",
+  "DFIntRakNetMtuValue1InBytes": "1396",
+  "DFIntRakNetMtuValue2InBytes": "1150",
+  "DFIntRakNetMtuValue3InBytes": "1100"
+}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="audio" class="tab-content">
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-volume-up category-icon"></i>
+            <h3 class="category-title">Audio</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Allows You to Change Voice Chat Distance</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>Default: [Min 7 Max 80]</div>
+            </div>
+            <div class="flag-desc">Changes the voice chat distance.</div>
+            <div class="flag-json">{
+  "DFIntVoiceChatRollOffMinDistance": "7",
+  "DFIntVoiceChatRollOffMaxDistance": "80"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Sounds Use Physical Velocity and Become Distorted</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>&lt;2017 Audio</div>
+            </div>
+            <div class="flag-desc">Makes sounds use physical velocity, causing distortion.</div>
+            <div class="flag-json">{
+  "FFlagSoundsUsePhysicalVelocity": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Audio Occlusion</div>
+            <div class="flag-desc">Enables audio occlusion for more realistic sound.</div>
+            <div class="flag-json">{
+  "FFlagSoundsUsePhysicalVelocity": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Limit Audios That Are Being Played</div>
+            <div class="flag-desc">Limits the number of audio channels that can be played simultaneously.</div>
+            <div class="flag-json">{
+  "DFIntMaxLoadableAudioChannelCount": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Mess With Voice Chat Volume</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>Default: 1000</div>
+            </div>
+            <div class="flag-desc">Changes the voice chat volume.</div>
+            <div class="flag-json">{
+  "DFIntVoiceChatVolumeThousandths": "100000"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">No Sounds</div>
+            <div class="flag-desc">Disables all sounds.</div>
+            <div class="flag-json">{
+  "FFlagDebugRomarkMockingAudioDevices": "True"
+}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div id="system" class="tab-content">
+        <div class="category">
+          <div class="category-header">
+            <i class="fas fa-cogs category-icon"></i>
+            <h3 class="category-title">System</h3>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Display FPS</div>
+            <div class="flag-desc">Displays the FPS counter.</div>
+            <div class="flag-json">{
+  "FFlagDebugDisplayFPS": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable In-Game Advertisements</div>
+            <div class="flag-desc">Disables in-game advertisements.</div>
+            <div class="flag-json">{
+  "FFlagAdServiceEnabled": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Telemetry</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>Doesn't disable all telemetry</div>
+            </div>
+            <div class="flag-desc">Disables most telemetry data collection.</div>
+            <div class="flag-json">{
+  "FFlagDebugDisableTelemetryEphemeralCounter": "True",
+  "FFlagDebugDisableTelemetryEphemeralStat": "True",
+  "FFlagDebugDisableTelemetryEventIngest": "True",
+  "FFlagDebugDisableTelemetryPoint": "True",
+  "FFlagDebugDisableTelemetryV2Counter": "True",
+  "FFlagDebugDisableTelemetryV2Event": "True",
+  "FFlagDebugDisableTelemetryV2Stat": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">No Internet Disconnect</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>You will still be kicked but the message won't show</div>
+            </div>
+            <div class="flag-desc">Prevents the disconnect message from showing when losing internet connection.</div>
+            <div class="flag-json">{
+  "DFFlagDebugDisableTimeoutDisconnect": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Custom Disconnect Message</div>
+            <div class="flag-desc">Sets a custom disconnect message.</div>
+            <div class="flag-json">{
+  "FFlagReconnectDisabled": "True",
+  "FStringReconnectDisabledReason": "You're stupid and I hate you"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Verified Badge</div>
+            <div class="flag-desc">Gives a verified badge to a specific user.</div>
+            <div class="flag-json">{
+  "FStringWhitelistVerifiedUserId": "UserID"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Verified Badge On Everyone</div>
+            <div class="flag-desc">Gives a verified badge to everyone.</div>
+            <div class="flag-json">{
+  "FFlagOverridePlayerVerifiedBadge": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Remove VC Beta Badge</div>
+            <div class="flag-desc">Removes the voice chat beta badge.</div>
+            <div class="flag-json">{
+  "FFlagVoiceBetaBadge": "False",
+  "FFlagTopBarUseNewBadge": "False",
+  "FFlagBetaBadgeLearnMoreLinkFormview": "False",
+  "FFlagControlBetaBadgeWithGuac": "False",
+  "FStringVoiceBetaBadgeLearnMoreLink": "null"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Adjust Default Timeout Time</div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>1 second = 1000</div>
+            </div>
+            <div class="flag-desc">Adjusts the default timeout time.</div>
+            <div class="flag-json">{
+  "DFIntDefaultTimeoutTimeMs": "10000"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Quick Game Launch</div>
+            <div class="notice notice-caution">
+              <div class="notice-title">Caution</div>
+              <div>This can cause some bugs</div>
+            </div>
+            <div class="flag-desc">Enables quick game launch for faster loading.</div>
+            <div class="flag-json">{
+  "FFlagEnableQuickGameLaunch": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Increased Asset Preloading Count</div>
+            <div class="notice notice-note">
+              <div class="notice-title">Note</div>
+              <div>Increasing the maximum limit of preloaded assets from 100 to infinite allows games you've already played to load much faster by instantly accessing previously loaded assets.</div>
+            </div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>For this to be effective, the game must have been fully loaded at least once, preferably with the entire map cached.</div>
+            </div>
+            <div class="notice notice-tip">
+              <div class="notice-title">Tip</div>
+              <div>If a game has a "Skip Loading" button, it's recommended to use it. These games typically include a countdown timer that, after reaching zero, merely confirms that all assets are loaded.</div>
+            </div>
+            <div class="flag-desc">Increases the number of assets that can be preloaded.</div>
+            <div class="flag-json">{
+  "DFIntNumAssetsMaxToPreload": "9999999"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable In-Game Purchases</div>
+            <div class="flag-desc">Disables in-game purchases.</div>
+            <div class="flag-json">{
+  "DFFlagOrder66": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Unmute Mic Automatically When Joining (VC)</div>
+            <div class="flag-desc">Automatically unmutes the microphone when joining voice chat.</div>
+            <div class="flag-json">{
+  "FFlagDebugDefaultChannelStartMuted": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Zoom Limit</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Only applies to games that have not changed the default zoom limit. You can apply even higher values.</div>
+            </div>
+            <div class="flag-desc">Sets the maximum zoom distance.</div>
+            <div class="flag-json">{
+  "FIntCameraMaxZoomDistance": "99999"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Stop the Chinese From Spying On You</div>
+            <div class="flag-desc">Disables Tencent authentication path.</div>
+            <div class="flag-json">{
+  "FStringTencentAuthPath": "null"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Remove Parental Controls Tab</div>
+            <div class="flag-desc">Removes the parental controls tab.</div>
+            <div class="flag-json">{
+  "FFlagLuaAppsEnableParentalControlsTab": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Remove Layered Clothing Related For Searching In Lua App Catalog</div>
+            <div class="flag-desc">Removes layered clothing from the search catalog.</div>
+            <div class="flag-json">{
+  "FStringAXCategories": "ClassicShirts.ClassicTShirts.ClassicPants"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Surf The Web Inside Of Roblox</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Click the Beta badge or the 13+ badge to open the webview browser</div>
+            </div>
+            <div class="flag-desc">Enables web browsing inside Roblox.</div>
+            <div class="flag-json">{
+  "FFlagTopBarUseNewBadge": "True",
+  "FStringTopBarBadgeLearnMoreLink": "https://google.com/",
+  "FStringVoiceBetaBadgeLearnMoreLink": "https://google.com/"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Toast Notifications</div>
+            <div class="flag-desc">Disables toast notifications.</div>
+            <div class="flag-json">{
+  "FFlagToastNotificationsProtocolEnabled2": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Rename Communications To Voice Enabled</div>
+            <div class="flag-desc">Renames the communications tab to voice enabled.</div>
+            <div class="flag-json">{
+  "FFlagGameDetailsDecoupledCommunication": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Revert "Charts" Back To Discovery</div>
+            <div class="flag-desc">Reverts the charts page back to discovery.</div>
+            <div class="flag-json">{
+  "FFlagLuaAppChartsPageRenameIXP": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Applies Cool Colors To Stuff</div>
+            <div class="flag-desc">Applies cool colors to UI elements.</div>
+            <div class="flag-json">{
+  "FFlagDebugDisplayUnthemedInstances": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Revert Spacing On Errors</div>
+            <div class="flag-desc">Reverts the spacing on error messages.</div>
+            <div class="flag-json">{
+  "FFlagErrorPromptResizesHeight": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Remove Disconnect Blur/Loading Blur</div>
+            <div class="flag-desc">Removes the blur effect when disconnecting or loading.</div>
+            <div class="flag-json">{
+  "FIntRobloxGuiBlurIntensity": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Custom MicroProfile Scale</div>
+            <div class="flag-desc">Sets a custom scale for the micro profiler.</div>
+            <div class="flag-json">{
+  "DFIntMicroProfilerDpiScaleOverride": "100"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Set Custom Font Size</div>
+            <div class="flag-desc">Sets a custom font size.</div>
+            <div class="flag-json">{
+  "FIntFontSizePadding": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Adjust Scroll Speed</div>
+            <div class="flag-desc">Adjusts the scroll speed.</div>
+            <div class="flag-json">{
+  "FIntScrollWheelDeltaAmount": "140"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Set Custom Kick Message Length</div>
+            <div class="flag-desc">Sets a custom length for kick messages.</div>
+            <div class="flag-json">{
+  "FIntMaxKickMessageLength": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Typing Overlay</div>
+            <div class="flag-desc">Enables the typing overlay.</div>
+            <div class="flag-json">{
+  "FFlagDebugTextBoxServiceShowOverlay": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Amount Of Lines To Show At Once For Above</div>
+            <div class="flag-desc">Sets the number of lines to show in the typing overlay.</div>
+            <div class="flag-json">{
+  "DFIntTextBoxServiceHistorySize": "1"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Autocomplete</div>
+            <div class="flag-desc">Disables command autocomplete.</div>
+            <div class="flag-json">{
+  "FFlagEnableCommandAutocomplete": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Break Collectible Icon</div>
+            <div class="flag-desc">Disables the collectible icon.</div>
+            <div class="flag-json">{
+  "FFlagDisplayCollectiblesIcon": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Bubble Chat</div>
+            <div class="flag-desc">Disables bubble chat.</div>
+            <div class="flag-json">{
+  "FFlagEnableBubbleChatFromChatService": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Limit Videos Playing</div>
+            <div class="flag-desc">Limits the number of videos that can play simultaneously.</div>
+            <div class="flag-json">{
+  "DFIntVideoMaxNumberOfVideosPlaying": "0"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable DSA Reporting In-game</div>
+            <div class="flag-desc">Disables DSA reporting in-game.</div>
+            <div class="flag-json">{
+  "FFlagDSAIllegalContentReporting2": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Desktop App Dev Tools</div>
+            <div class="notice notice-important">
+              <div class="notice-title">Important</div>
+              <div>Only works on web view windows like profiles, Ctrl + Shift + I</div>
+            </div>
+            <div class="flag-desc">Enables developer tools for the desktop app.</div>
+            <div class="flag-json">{
+  "FFlagDebugEnableNewWebView2DevTool": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Enable Thick Health Bar</div>
+            <div class="flag-desc">Enables a thicker health bar.</div>
+            <div class="flag-json">{
+  "FFlagUpdateHealthBar": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Hamburger Menu For Chrome UI</div>
+            <div class="flag-desc">Enables a hamburger menu for the Chrome UI.</div>
+            <div class="flag-json">{
+  "FFlagEnableHamburgerIcon": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Enable Genres</div>
+            <div class="flag-desc">Enables the genres feature.</div>
+            <div class="flag-json">{
+  "FFlagLuaAppGenreUnderConstruction": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Custom Accessory Positions Working In Game</div>
+            <div class="flag-desc">Enables custom accessory positions in-game.</div>
+            <div class="flag-json">{
+  "FFlagAXAccessoryAdjustmentIXPEnabledForAll": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Enable First Time User Experience for Chrome UI</div>
+            <div class="flag-desc">Enables the first-time user experience for the Chrome UI.</div>
+            <div class="flag-json">{
+  "FFlagEnableChromeFTUX": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Disable Haptics Option</div>
+            <div class="flag-desc">Disables the haptics option.</div>
+            <div class="flag-json">{
+  "FFlagAddHapticsToggle": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Enable Better Haptics</div>
+            <div class="flag-desc">Enables better haptics.</div>
+            <div class="flag-json">{
+  "FFlagEnableBetterHapticsResultHandling": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Chrome UI TopBar</div>
+            <div class="flag-desc">Enables the Chrome UI top bar.</div>
+            <div class="flag-json">{
+  "FFlagEnableReportAbuseMenuRoactABTest2": "True",
+  "FFlagEnableInGameMenuChromeABTest2": "True",
+  "FFlagEnableInGameMenuChromeABTest3": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Chrome UI Topbar Removal</div>
+            <div class="flag-desc">Removes the Chrome UI top bar.</div>
+            <div class="flag-json">{
+  "FFlagEnableInGameMenuChromeABTest2": "False",
+  "FFlagEnableReportAbuseMenuRoactABTest2": "False",
+  "FFlagEnableInGameMenuChromeABTest3": "False"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Hide Playerlist Close Button On Chrome UI</div>
+            <div class="flag-desc">Hides the playerlist close button on the Chrome UI.</div>
+            <div class="flag-json">{
+  "FFlagDisablePlayerListDisplayCloseBtn": "True"
+}</div>
+          </div>
+          
+          <div class="flag-item">
+            <div class="flag-name">Pin Chat On Chrome UI</div>
+            <div class="flag-desc">Pins the chat on the Chrome UI.</div>
+            <div class="flag-json">{
+  "FFlagEnableChromePinnedChat": "True"
+}</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <main class="card">
+        <section id="presets">
+          <h2>Presets</h2>
+          <p class="small">Filter by tag or use search. Click <span class="chip">Copy</span> to copy the preset string to clipboard.</p>
+
+          <div style="margin-top:12px;margin-bottom:12px" class="search">
+            <input id="q" type="text" placeholder="Search presets or flags (example: fps, network, safety)" />
+            <button class="ghost" onclick="resetFilters()">Reset</button>
+          </div>
+
+          <div id="preset-list"></div>
+
+          <h3 style="margin-top:14px">Raw presets (JSON)</h3>
+          <pre id="raw-json"></pre>
+
+        </section>
+
+        <hr style="margin:16px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)" />
+
+        <section id="install">
+          <h2>How to Use Fast Flags with Bloxstrap</h2>
+          <p class="muted">Follow these steps to apply Fast Flags using Bloxstrap:</p>
+          
+          <div class="install-steps">
+            <div class="install-step">
+              <div class="install-step-title">Open the Bloxstrap Menu</div>
+              <div class="install-step-desc">Launch Bloxstrap and right-click on the system tray icon to open the menu.</div>
+            </div>
+            
+            <div class="install-step">
+              <div class="install-step-title">Navigate to Fast Flags Editor</div>
+              <div class="install-step-desc">Go to Fast Flags >> Fast Flags Editor >> Add New >> Import JSON.</div>
+            </div>
+            
+            <div class="install-step">
+              <div class="install-step-title">Paste the JSON</div>
+              <div class="install-step-desc">Copy the JSON from any preset on this site and paste it into the editor.</div>
+            </div>
+            
+            <div class="install-step">
+              <div class="install-step-title">Save and Close</div>
+              <div class="install-step-desc">Click Save and then Close to apply the changes.</div>
+            </div>
+          </div>
+
+          <h4 style="margin-top:20px">Example — apply manually</h4>
+          <pre>// paste these into your flag editor
+FFlag_Set("LowDetailMode", true)
+FFlag_Set("NewTextureStreaming", false)
+// ...</pre>
+
+          <h4>Download a preset</h4>
+          <p class="small">Click the download button next to each preset to save a JSON file (useful for automation or import).</p>
+
+        </section>
+
+        <hr style="margin:16px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)" />
+
+        <section id="faq">
+          <h2>FAQ</h2>
+          <p><strong>Q: Is this safe to use?</strong></p>
+          <p class="muted">A: Use flags responsibly. Some flags change gameplay/telemetry — always test locally first and follow platform rules.</p>
+
+          <p><strong>Q: How do I host on Render?</strong></p>
+          <p class="muted">A: Push this repo to GitHub and create a new Static Site on Render. Set the branch to the branch you pushed (eg. <code>main</code>), leave the build command blank for plain HTML, and set the Publish Directory to <code>.</code> (root) if your index.html is in the repo root. See the Render docs for details.</p>
+
+          <p><strong>Q: What are Fast Flags?</strong></p>
+          <p class="muted">A: Fast Flags are configuration settings that allow you to modify various aspects of Roblox, including graphics, performance, UI, and more. They can be used to optimize your experience or unlock features not available in the standard settings.</p>
+
+          <p><strong>Q: Can I combine multiple presets?</strong></p>
+          <p class="muted">A: Yes, you can combine multiple presets by merging their JSON configurations. However, be careful not to include conflicting flags, as this may cause unexpected behavior.</p>
+
+        </section>
+
+      </main>
+
+      <aside class="card">
+        <h3>Quick actions</h3>
+        <p class="small">Download the full preset bundle or copy a sample preset to clipboard.</p>
+        <p style="margin-top:10px"><button class="btn" onclick="downloadAll()"><i class="fas fa-download"></i> Download all presets (zip)</button></p>
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)" />
+
+        <h4>Preset tags</h4>
+        <div class="preset-tags" id="tags"></div>
+
+        <hr style="margin:14px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)" />
+
+        <h4>Render tip</h4>
+        <p class="muted small">Create a new <strong>Static Site</strong> in the Render dashboard, connect your Git repo, and Render will auto-deploy from your chosen branch. For plain HTML: leave the build command blank and publish directory <code>.</code> if index.html is at repo root.</p>
+
+        <p style="margin-top:8px"><a class="ghost" href="#install">Show install</a></p>
+
+      </aside>
+    </div>
+
+    <footer>
+      <div class="small">Made with ❤️ — Fast Flags static site starter. Exported presets are for convenience; test before using in production.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Sample preset data (you can replace with real Bloxstrap presets)
+    const presets = [
+      {
+        id: 'preset-fps-max',
+        name: 'FPS Max — Performance First',
+        tags: ['fps','performance','graphics'],
+        desc: 'Aggressive performance presets — reduces visual fidelity for max FPS.',
+        flags: [
+          {k:'FFlag_PhysicsOptimization', v:true},
+          {k:'FFlag_TextureStreaming', v:false},
+          {k:'FFlag_LowDetailMode', v:true}
+        ]
+      },
+      {
+        id: 'preset-net-stable',
+        name: 'Network Stable — Prioritize Latency',
+        tags: ['network','latency','stability'],
+        desc: 'Tweaks networking flags to reduce jitter and packet usage.',
+        flags: [
+          {k:'FFlag_ReliablePacketQueue', v:true},
+          {k:'FFlag_CompressPackets', v:true},
+          {k:'FFlag_PacketBundleLimit', v:200}
+        ]
+      },
+      {
+        id: 'preset-safe',
+        name: 'Safe — Conservative Defaults',
+        tags: ['stability','safety'],
+        desc: 'Conservative flags that prefer stability and compatibility.',
+        flags: [
+          {k:'FFlag_NewRenderingPipeline', v:false},
+          {k:'FFlag_PhysicsSandbox', v:false}
+        ]
+      }
+    ];
+
+    function renderPresets(list){
+      const container = document.getElementById('preset-list');
+      container.innerHTML = '';
+      list.forEach(p => {
+        const el = document.createElement('div'); el.className='preset';
+        el.innerHTML = `
+          <div>
+            <div style="font-weight:700">${p.name}</div>
+            <div class="small muted">${p.desc}</div>
+            <div style="margin-top:6px" class="preset-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+          </div>
+          <div class="preset-buttons">
+            <button class="ghost" onclick='copyPreset("${p.id}")'><i class="fas fa-copy"></i> Copy</button>
+            <button class="btn" onclick='downloadPreset("${p.id}")'><i class="fas fa-download"></i> Download</button>
+          </div>
+        `;
+        container.appendChild(el);
+      });
+      document.getElementById('raw-json').textContent = JSON.stringify(list, null, 2);
+      renderTags();
+    }
+
+    function renderTags(){
+      const tags = new Set(); presets.forEach(p=>p.tags.forEach(t=>tags.add(t)));
+      const el = document.getElementById('tags'); el.innerHTML='';
+      Array.from(tags).forEach(t=>{
+        const b = document.createElement('button'); b.className='tag'; b.textContent=t; b.onclick=()=>filterByTag(t);
+        el.appendChild(b);
+      });
+    }
+
+    function copyPreset(id){
+      const p = presets.find(x=>x.id===id);
+      const text = p.flags.map(f=>`${f.k}=${JSON.stringify(f.v)}`).join('\n');
+      navigator.clipboard.writeText(text).then(()=>{
+        // Show success message
+        const originalText = event.target.innerHTML;
+        event.target.innerHTML = '<i class="fas fa-check"></i> Copied!';
+        event.target.classList.add('copy-ok');
+        setTimeout(() => {
+          event.target.innerHTML = originalText;
+          event.target.classList.remove('copy-ok');
+        }, 2000);
+      },()=>{
+        alert('Failed to copy.');
+      });
+    }
+
+    function downloadPreset(id){
+      const p = presets.find(x=>x.id===id);
+      const blob = new Blob([JSON.stringify(p, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download = `${p.id}.json`; a.click(); URL.revokeObjectURL(url);
+    }
+
+    function downloadAll(){
+      // simple fallback: download full JSON
+      const blob = new Blob([JSON.stringify(presets, null, 2)], {type:'application/json'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href=url; a.download = `fast-flags-presets.json`; a.click(); URL.revokeObjectURL(url);
+    }
+
+    function filterByTag(tag){
+      const filtered = presets.filter(p=>p.tags.includes(tag)); renderPresets(filtered);
+    }
+
+    function resetFilters(){ document.getElementById('q').value=''; renderPresets(presets); }
+
+    document.getElementById('q').addEventListener('input', (e)=>{
+      const q = e.target.value.toLowerCase();
+      const out = presets.filter(p=> p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || p.tags.join(' ').includes(q) || p.flags.some(f=>f.k.toLowerCase().includes(q)) );
+      renderPresets(out);
+    });
+
+    // Tab functionality
+    function openTab(evt, tabName) {
+      var i, tabcontent, tabs;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      tabs = document.getElementsByClassName("tab");
+      for (i = 0; i < tabs.length; i++) {
+        tabs[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+
+    // init
+    renderPresets(presets);
+  </script>
+</body>
+</html>
